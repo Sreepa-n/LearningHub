@@ -1,0 +1,17 @@
+import spacy
+nlp=spacy.load('en_core_web_sm')
+sample="""Tenali Raman was once walking along a forest path when he was stopped by a merchant. “I’m looking for my camel which has strayed away. Did you see it passing by?” asked the merchant.“Had the camel hurt its leg?” asked Raman.“Oh yes! That means you have seen my camel!” said the merchant.“Only its footprints. See, you can see footprints of an animal with three legs,” said Raman, pointing out the footprints on the ground. “It was dragging the other leg because it was hurt in that leg.”"""
+text_doc=nlp(sample)
+sentences=[sent for sent in text_doc.sents]
+print(sentences)
+tokens=[(token.text,token.idx) for token in text_doc if not token.is_punct and not token.is_stop]
+print(tokens)
+from collections import Counter
+freq=Counter(tokens)
+print(freq.most_common(10))
+sw=spacy.lang.en.stop_words.STOP_WORDS
+clean_tokens=[(token.text,token.lemma_) for token in text_doc if not token.is_punct and token.list not in list(sw)]
+freq=Counter(clean_tokens)
+print(freq.most_common(10))
+
+

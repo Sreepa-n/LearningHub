@@ -18,4 +18,6 @@ print(freq.most_common(10))
 print([(token.text,token.tag_,token.pos_) for token in text_doc])
 partofspeech=[(token.text,token.tag_,token.pos_) for token in text_doc if not token.is_punct and token.text not in list(sw)]
 print(partofspeech)
-
+#named entities
+from spacy import displacy
+displacy.render(text_doc,style="ent",jupyter=True)

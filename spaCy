@@ -10,7 +10,7 @@ from collections import Counter
 freq=Counter(tokens)
 print(freq.most_common(10))
 sw=spacy.lang.en.stop_words.STOP_WORDS
-clean_tokens=[(token.text,token.lemma_) for token in text_doc if not token.is_punct and token.list not in list(sw)]
+clean_tokens=[(token.text,token.lemma_) for token in text_doc if not token.is_punct and token.text not in list(sw)]
 freq=Counter(clean_tokens)
 print(freq.most_common(10))
 

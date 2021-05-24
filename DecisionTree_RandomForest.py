@@ -87,6 +87,8 @@ predictions_rf = rf.predict(test_x)
 print(confusion_matrix(test_y, predictions_rf))
 print(accuracy_score(test_y, predictions_rf))
 
-
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import r2_score
+r2_score()
 
 
